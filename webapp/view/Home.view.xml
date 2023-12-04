@@ -19,6 +19,7 @@
         
             <m:Title text="Administração" />
 			<Table
+                id="tableID"
 				rows="{companyInfo>/}"
 				selectionMode="MultiToggle"
 				paste="onPaste"
@@ -27,7 +28,7 @@
 					<m:OverflowToolbar >
 						<m:Title id="title" text="Empresas ({companyInfo>/length})"/>
                         <m:ToolbarSpacer/>
-                        <m:SearchField id="searchField" width="15%" search="onSearch" placeholder="Pesquisar" />
+                        <m:SearchField id="searchField" width="15%" liveChange="onSearch" placeholder="Pesquisar" />
 					</m:OverflowToolbar>
 				</extension>
 				<columns>

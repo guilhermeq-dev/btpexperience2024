@@ -9,18 +9,20 @@ sap.ui.define([
     "sap/ui/layout/form/FormContainer",
     "sap/ui/layout/form/FormElement",
     "sap/m/Label",
-    "sap/m/Select"
+    "sap/m/Select",
+    "sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, Dialog, Button, Input, ResponsiveGridLayout, Form, FormContainer, FormElement, Label, Select) {
+    function (Controller, JSONModel, Dialog, Button, Input, ResponsiveGridLayout, Form, FormContainer, FormElement, Label, Select, Filter, FilterOperator) {
         "use strict";
 
         return Controller.extend("com.lab2dev.btpexperience.controller.Home", {
             onInit: function () {
 
-                const companyInfo = [
+                const infos = [
                     {
                         companyID: 10001,
                         companyName: "LAB2DEV",
@@ -45,9 +47,25 @@ sap.ui.define([
                         email: "contato@lab2dev.com",
                         region: "São Paulo"
                     },
+                    {
+                        companyID: 10004,
+                        companyName: "PASTELARIA",
+                        corporateCode: "11.345.678/0001-70",
+                        webSite: "www.pastelaria.com",
+                        email: "contato@pastelaria.com",
+                        region: "Minas Gerais"
+                    },
+                    {
+                        companyID: 10005,
+                        companyName: "PASTELÃO",
+                        corporateCode: "15.345.678/0001-40",
+                        webSite: "www.pastelao.com",
+                        email: "contato@pastelao.com",
+                        region: "Rio de Janeiro"
+                    },
                 ]
 
-                const oModel = new JSONModel(companyInfo)
+                const oModel = new JSONModel(infos)
                 this.getView().setModel(oModel, "companyInfo")
 
             },
@@ -109,11 +127,11 @@ sap.ui.define([
                     })
                 ]
             });
-
+                // Dialog declarado
                 var oDialog = new Dialog({
                     title: "Dados da empresa",
                     content: [oForm],
-                    beginButton: new Button({
+                    beginButton: new Button({  // botao de confirmação para cadastrar uma nova empresa
                         text: "Cadastrar empresa",
                         type: "Emphasized",
                         press: function () {
@@ -123,8 +141,22 @@ sap.ui.define([
                 })
                 oDialog.setContentWidth("400px")
                 oDialog.setContentHeight("300px")
-                oDialog.open()
-            }
-            
+                oDialog.open() // funcao chamada para abrir o Modal
+            },
+            // SearchField adicionado 
+            onSearch: function (oEvent) {
+                // add filter for search
+                var aFilters = [];
+                var sQuery = oEvent.getSource().getValue();
+                if (sQuery && sQuery.length > 0) {
+                    var filter = new Filter("companyName", FilterOperator.Contains, sQuery);
+                    aFilters.push(filter);
+                }
+    
+                // update list binding
+                var oList = this.byId("tableID");
+                var oBinding = oList.getBinding("rows");
+                oBinding.filter(aFilters);
+            },
         });
     });

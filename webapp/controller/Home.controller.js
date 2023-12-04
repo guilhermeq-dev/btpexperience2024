@@ -146,17 +146,17 @@ sap.ui.define([
             // SearchField adicionado 
             onSearch: function (oEvent) {
                 // add filter for search
-                var aFilters = [];
-                var sQuery = oEvent.getSource().getValue();
+                var aFilters = []
+                var sQuery = oEvent.getSource().getValue()
                 if (sQuery && sQuery.length > 0) {
-                    var filter = new Filter("companyName", FilterOperator.Contains, sQuery);
-                    aFilters.push(filter);
+                    var filter = new Filter("companyName", FilterOperator.Contains, sQuery)
+                    aFilters.push(filter)
                 }
     
                 // update list binding
-                var oList = this.byId("tableID");
-                var oBinding = oList.getBinding("rows");
-                oBinding.filter(aFilters);
+                var oList = this.byId("tableID")
+                var oBinding = oList.getBinding("rows")
+                oBinding.filter(aFilters)
             },
         });
     });

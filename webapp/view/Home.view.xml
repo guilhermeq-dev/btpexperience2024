@@ -1,0 +1,73 @@
+<mvc:View controllerName="com.lab2dev.btpexperience.controller.Home"
+    xmlns="sap.ui.table"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+	xmlns:m="sap.m"
+   >
+    
+    <!-- <m:Toolbar>
+		<m:Title text="oi"/>					
+	</m:Toolbar> -->
+	<m:Page
+		showHeader="false"
+		enableScrolling="false"
+		class="sapUiContentPadding"
+        title="Administração">
+    
+		<m:content>
+        
+            <m:Title text="Administração" />
+			<Table
+				rows="{/ProductCollection}"
+				selectionMode="MultiToggle"
+				paste="onPaste"
+				ariaLabelledBy="title">
+				<extension>
+					<m:OverflowToolbar >
+						<m:Title id="title" text="Empresas ( )"/>
+                        <m:SearchField width="15%" search="onSearch" placeholder="Pesquisar" />
+					</m:OverflowToolbar>
+				</extension>
+				<columns>
+					<Column width="6rem">
+						<m:Label text="ID" />
+						<template>
+							<m:Text text="{Name}" wrapping="false" />
+						</template>
+					</Column>
+					<Column width="18rem">
+						<m:Label text="Nome (fantasia)" />
+						<template>
+							<m:Input value="{ProductId}"/>
+						</template>
+					</Column>
+					<Column width="12rem">
+						<m:Label text="CNPJ" />
+						<template>
+							<m:Label text="{Quantity}" />
+						</template>
+					</Column>
+					<Column width="16rem">
+						<m:Label text="Site" />
+						<template>
+							<m:Label text="{Quantity}" />
+						</template>
+					</Column>
+					<Column width="18rem">
+						<m:Label text="E-mail de contato" />
+						<template>
+							<m:Label text="{Quantity}" />
+						</template>
+					</Column>
+					<Column width="6rem">
+						<m:Label text="Estado" />
+						<template>
+							<m:Label text="{Quantity}" />
+						</template>
+					</Column>
+				</columns>
+			</Table>
+		</m:content>
+	</m:Page>
+</mvc:View>

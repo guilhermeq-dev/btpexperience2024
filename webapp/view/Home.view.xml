@@ -5,7 +5,7 @@
 	xmlns:c="sap.ui.core"
 	xmlns:m="sap.m"
    >
-    
+
     <!-- <m:Toolbar>
 		<m:Title text="oi"/>					
 	</m:Toolbar> -->
@@ -14,7 +14,7 @@
 		enableScrolling="false"
 		class="sapUiContentPadding"
         title="Administração">
-    
+        
 		<m:content>
         
             <m:Title text="Administração" />
@@ -82,7 +82,7 @@
         <m:footer>
 			<m:Toolbar>
 				<m:ToolbarSpacer/>
-				<m:Button type="Emphasized" text="Adicionar empresa" press="onPress" />
+				<m:Button type="Emphasized" text="Adicionar empresa" press="openModal" ariaHasPopup="Dialog" />
 			</m:Toolbar>
 		</m:footer>
 	</m:Page>

@@ -19,55 +19,71 @@
         
             <m:Title text="Administração" />
 			<Table
-				rows="{/ProductCollection}"
+				rows="{companyInfo>/}"
 				selectionMode="MultiToggle"
 				paste="onPaste"
 				ariaLabelledBy="title">
 				<extension>
 					<m:OverflowToolbar >
-						<m:Title id="title" text="Empresas ( )"/>
-                        <m:SearchField width="15%" search="onSearch" placeholder="Pesquisar" />
+						<m:Title id="title" text="Empresas ({companyInfo>/length})"/>
+                        <m:ToolbarSpacer/>
+                        <m:SearchField id="searchField" width="15%" search="onSearch" placeholder="Pesquisar" />
 					</m:OverflowToolbar>
 				</extension>
 				<columns>
-					<Column width="6rem">
+					<Column width="5rem">
 						<m:Label text="ID" />
 						<template>
-							<m:Text text="{Name}" wrapping="false" />
+							<m:Text text="{companyInfo>companyID}" wrapping="false" />
 						</template>
 					</Column>
-					<Column width="18rem">
+					<Column width="14rem">
 						<m:Label text="Nome (fantasia)" />
 						<template>
-							<m:Input value="{ProductId}"/>
+							<m:Label text="{companyInfo>companyName}"/>
 						</template>
 					</Column>
 					<Column width="12rem">
 						<m:Label text="CNPJ" />
 						<template>
-							<m:Label text="{Quantity}" />
+							<m:Label text="{companyInfo>corporateCode}" />
 						</template>
 					</Column>
-					<Column width="16rem">
+					<Column width="14rem">
 						<m:Label text="Site" />
 						<template>
-							<m:Label text="{Quantity}" />
+							<m:Label text="{companyInfo>webSite}" />
 						</template>
 					</Column>
-					<Column width="18rem">
+					<Column width="14rem">
 						<m:Label text="E-mail de contato" />
 						<template>
-							<m:Label text="{Quantity}" />
+							<m:Label text="{companyInfo>email}" />
 						</template>
 					</Column>
-					<Column width="6rem">
+					<Column width="15rem">
 						<m:Label text="Estado" />
 						<template>
-							<m:Label text="{Quantity}" />
+							<m:Label text="{companyInfo>region}" />
+						</template>
+					</Column>
+                    <Column width="2rem" hAlign="Center">
+                        <m:Label text="" />
+						<template>
+							<m:Button
+								icon="sap-icon://navigation-right-arrow"
+								type="Transparent" 
+                                press="handleDetailsPress"/>
 						</template>
 					</Column>
 				</columns>
 			</Table>
 		</m:content>
+        <m:footer>
+			<m:Toolbar>
+				<m:ToolbarSpacer/>
+				<m:Button type="Emphasized" text="Adicionar empresa" press="onPress" />
+			</m:Toolbar>
+		</m:footer>
 	</m:Page>
 </mvc:View>

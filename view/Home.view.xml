@@ -1,0 +1,161 @@
+<mvc:View controllerName="com.lab2dev.btpexperience.controller.Home"
+    xmlns="sap.ui.table"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+	xmlns:m="sap.m"
+   >
+    
+	<m:Page
+		showHeader="false"
+		enableScrolling="false"
+		
+        title="Administração">
+        
+        <m:Toolbar class="tabInfo"> 
+            <m:IconTabBar>
+                <m:items>
+                    <m:IconTabFilter key="info" text="Cadastro">
+                        <m:items>
+                            <m:IconTabFilter text="Info one">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info two">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info three">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info four">
+                                
+                            </m:IconTabFilter>
+                        </m:items>
+                    </m:IconTabFilter>
+                    <m:IconTabFilter key="info" text="Administração">
+                        <m:items>
+                            <m:IconTabFilter text="Empresas" press="navToCompany">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info two">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info three">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info four">
+                                
+                            </m:IconTabFilter>
+                        </m:items>
+                    </m:IconTabFilter>
+                    <m:IconTabFilter key="info" text="Gamificação">
+                        <m:items>
+                            <m:IconTabFilter text="Info one">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info two">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info three">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info four">
+                                
+                            </m:IconTabFilter>
+                        </m:items>
+                    </m:IconTabFilter>
+                    <m:IconTabFilter key="info" text="Relatórios">
+                        <m:items>
+                            <m:IconTabFilter text="Info one">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info two">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info three">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info four">
+                                
+                            </m:IconTabFilter>
+                        </m:items>
+                    </m:IconTabFilter>
+                </m:items>
+            </m:IconTabBar>
+        </m:Toolbar>
+        
+		<m:content>
+            <m:Title text="Administração" class="titleAdm" />
+            <m:ToolbarSpacer/>
+            <m:Title text="Empresas" class="titleCompany" />
+			<Table
+                id="tableID"
+				rows="{companyInfo>/}"
+				selectionMode="None"
+				paste="onPaste"
+				ariaLabelledBy="title">
+				<extension>
+					<m:OverflowToolbar >
+						<m:Title id="title" text="Empresas ({companyInfo>/length})"/>
+                        <m:ToolbarSpacer/>
+                        <m:SearchField id="searchField" width="15%" liveChange="onSearch" placeholder="Pesquisar" />
+					</m:OverflowToolbar>
+				</extension>
+				<columns>
+					<Column width="7rem">
+						<m:Label text="ID" />
+						<template>
+							<m:Text text="{companyInfo>companyID}" wrapping="false" />
+						</template>
+					</Column>
+					<Column width="15rem">
+						<m:Label text="Nome (fantasia)" />
+						<template>
+							<m:Label text="{companyInfo>companyName}"/>
+						</template>
+					</Column>
+					<Column width="12rem">
+						<m:Label text="CNPJ" />
+						<template>
+							<m:Label text="{companyInfo>corporateCode}" />
+						</template>
+					</Column>
+					<Column width="14rem">
+						<m:Label text="Site" />
+						<template>
+							<m:Label text="{companyInfo>webSite}" />
+						</template>
+					</Column>
+					<Column width="14rem">
+						<m:Label text="E-mail de contato" />
+						<template>
+							<m:Label text="{companyInfo>email}" />
+						</template>
+					</Column>
+					<Column width="14rem">
+						<m:Label text="Estado" />
+						<template>
+							<m:Label text="{companyInfo>region}" />
+						</template>
+					</Column>
+                    <Column width="2rem" class="columnButton">
+                        <m:Label text="" class="columnButton" />
+						<template>
+							<m:Button
+								class="columnButton"
+								icon="sap-icon://navigation-right-arrow"
+								type="Transparent" 
+                                press="handleDetailsPress"/>
+						</template>
+					</Column>
+				</columns>
+			</Table>
+            
+		</m:content>
+        <m:footer>
+			<m:Toolbar>
+				<m:ToolbarSpacer/>
+				<m:Button type="Emphasized" text="Adicionar empresa" press="openModal" ariaHasPopup="Dialog" />
+			</m:Toolbar>
+		</m:footer>
+	</m:Page>
+</mvc:View>

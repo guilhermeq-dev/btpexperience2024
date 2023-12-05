@@ -23,8 +23,12 @@
     width: 100%;
 }
 
-.columnButton {
+#columnButton {
     display: flex;
     align-items: start;
+}
+
+#myBtn {
+    padding-bottom: 10px;
 }
 

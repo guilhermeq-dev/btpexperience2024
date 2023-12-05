@@ -8,10 +8,28 @@
     
 	<m:Page
 		showHeader="false"
-		enableScrolling="false"
+		enableScrolling="true"
 		
         title="Administração">
         
+		 <m:customHeader>
+                <m:Bar>
+                    <m:contentLeft>
+                        <!-- Conteúdo à esquerda do cabeçalho, como um botão de navegação -->
+                        <m:Button icon="sap-icon://nav-back" press="onBackButtonPress"/>
+                    </m:contentLeft>
+                    <m:contentMiddle>
+                        <!-- Conteúdo central do cabeçalho, como o título -->
+                        <m:Title text="Meu Cabeçalho"/>
+                    </m:contentMiddle>
+                    <m:contentRight>
+                        <!-- Conteúdo à direita do cabeçalho -->
+                        <m:Button text="Ação" press="onActionButtonPress"/>
+                    </m:contentRight>
+                </m:Bar>
+            </m:customHeader>
+
+
         <m:Toolbar class="tabInfo"> 
             <m:IconTabBar>
                 <m:items>
@@ -91,23 +109,22 @@
                 id="tableID"
 				rows="{companyInfo>/}"
 				selectionMode="None"
-				paste="onPaste"
-				ariaLabelledBy="title">
+				>
 				<extension>
 					<m:OverflowToolbar >
 						<m:Title id="title" text="Empresas ({companyInfo>/length})"/>
                         <m:ToolbarSpacer/>
-                        <m:SearchField id="searchField" width="15%" liveChange="onSearch" placeholder="Pesquisar" />
+                        <m:SearchField id="searchField" width="14rem" liveChange="onSearch" placeholder="Pesquisar" />
 					</m:OverflowToolbar>
 				</extension>
 				<columns>
-					<Column width="7rem">
+					<Column width="5%">
 						<m:Label text="ID" />
 						<template>
 							<m:Text text="{companyInfo>companyID}" wrapping="false" />
 						</template>
 					</Column>
-					<Column width="15rem">
+					<Column width="12rem">
 						<m:Label text="Nome (fantasia)" />
 						<template>
 							<m:Label text="{companyInfo>companyName}"/>
@@ -137,11 +154,10 @@
 							<m:Label text="{companyInfo>region}" />
 						</template>
 					</Column>
-                    <Column width="2rem" class="columnButton">
-                        <m:Label text="" class="columnButton" />
+                    <Column width="2rem">
+                        <m:Label text=""/>
 						<template>
 							<m:Button
-								class="columnButton"
 								icon="sap-icon://navigation-right-arrow"
 								type="Transparent" 
                                 press="handleDetailsPress"/>
@@ -154,6 +170,7 @@
         <m:footer>
 			<m:Toolbar>
 				<m:ToolbarSpacer/>
+				<m:Button text="Exportar para Excel" press="exportExcell"/>
 				<m:Button type="Emphasized" text="Adicionar empresa" press="openModal" ariaHasPopup="Dialog" />
 			</m:Toolbar>
 		</m:footer>

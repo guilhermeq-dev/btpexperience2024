@@ -1,0 +1,48 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+>
+    <Dialog
+        id="openDialog"
+        title="Dados da Empresa"
+    >
+
+        <content>
+            <HBox>
+                <Label text="Nome" required="true" />
+                <Input placeholder="Texto"/>
+
+                <Label text="E-mail" required="true" />
+                <Input placeholder="Texto" />
+            </HBox>
+            <HBox>
+                <Label text="Nome" required="true" />
+                <Input placeholder="Texto"/>
+
+                <Label text="E-mail" required="true" />
+                <Input placeholder="Texto" />
+            </HBox>
+            <HBox>
+                <Label text="Nome" required="true" />
+                <Input placeholder="Texto"/>
+
+                <Label text="E-mail" required="true" />
+                <Input placeholder="Texto" />
+            </HBox>
+            <HBox>
+                <Label text="Nome" required="true" />
+                <Input placeholder="Texto"/>
+
+                <Label text="E-mail" required="true" />
+                <Input placeholder="Texto" />
+            </HBox>
+            <Button
+                    text="Cadastrar empresa"
+                    press="onCloseDialog"
+                    width=""
+                    type="Emphasized"
+                >
+            </Button>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

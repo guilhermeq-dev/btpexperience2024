@@ -6,20 +6,88 @@
 	xmlns:m="sap.m"
    >
     
-    <!-- <m:Toolbar>
-		<m:Title text="oi"/>					
-	</m:Toolbar> -->
 	<m:Page
 		showHeader="false"
 		enableScrolling="false"
-		class="sapUiContentPadding"
+		
         title="Administração">
+        
+        <m:Toolbar class="tabInfo"> 
+            <m:IconTabBar>
+                <m:items>
+                    <m:IconTabFilter key="info" text="Cadastro">
+                        <m:items>
+                            <m:IconTabFilter text="Info one">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info two">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info three">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info four">
+                                
+                            </m:IconTabFilter>
+                        </m:items>
+                    </m:IconTabFilter>
+                    <m:IconTabFilter key="info" text="Administração">
+                        <m:items>
+                            <m:IconTabFilter text="Empresas" press="navToCompany">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info two">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info three">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info four">
+                                
+                            </m:IconTabFilter>
+                        </m:items>
+                    </m:IconTabFilter>
+                    <m:IconTabFilter key="info" text="Gamificação">
+                        <m:items>
+                            <m:IconTabFilter text="Info one">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info two">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info three">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info four">
+                                
+                            </m:IconTabFilter>
+                        </m:items>
+                    </m:IconTabFilter>
+                    <m:IconTabFilter key="info" text="Relatórios">
+                        <m:items>
+                            <m:IconTabFilter text="Info one">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info two">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info three">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Info four">
+                                
+                            </m:IconTabFilter>
+                        </m:items>
+                    </m:IconTabFilter>
+                </m:items>
+            </m:IconTabBar>
+        </m:Toolbar>
+        
 		<m:content>
             <m:Title text="Administração" class="titleAdm" />
             <m:ToolbarSpacer/>
             <m:Title text="Empresas" class="titleCompany" />
 			<Table
-                flexEnabled="true"
                 id="tableID"
 				rows="{companyInfo>/}"
 				selectionMode="MultiToggle"
@@ -39,7 +107,7 @@
 							<m:Text text="{companyInfo>companyID}" wrapping="false" />
 						</template>
 					</Column>
-					<Column width="14rem">
+					<Column width="16rem">
 						<m:Label text="Nome (fantasia)" />
 						<template>
 							<m:Label text="{companyInfo>companyName}"/>
@@ -69,7 +137,7 @@
 							<m:Label text="{companyInfo>region}" />
 						</template>
 					</Column>
-                    <Column width="2rem" hAlign="Center">
+                    <Column width="2rem" id="columnButton">
                         <m:Label text="" />
 						<template>
 							<m:Button
@@ -81,8 +149,6 @@
 				</columns>
 			</Table>
             
-            
-
 		</m:content>
         <m:footer>
 			<m:Toolbar>

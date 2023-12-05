@@ -21,7 +21,7 @@ sap.ui.define([
 
         return Controller.extend("com.lab2dev.btpexperience.controller.Home", {
             onInit: function () {
-
+                // array de objetos simulando uma lista de empresas
                 const infos = [
                     {
                         companyID: 10001,
@@ -64,8 +64,9 @@ sap.ui.define([
                         region: "Rio de Janeiro"
                     },
                 ]
-
+                // cria um modelo JSON com as empresas 
                 const oModel = new JSONModel(infos)
+                // faz a ligação com a ViewXML (Aggregation Binding)
                 this.getView().setModel(oModel, "companyInfo")
 
             },
@@ -81,8 +82,6 @@ sap.ui.define([
             var oLayout = new ResponsiveGridLayout({
                 columnsL: 2,
                 columnsM: 2,
-                labelSpanL: 1,
-                labelSpanM: 1
             });
 
             // Criação do formulário

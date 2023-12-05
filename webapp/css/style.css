@@ -1,4 +1,7 @@
 /* Enter your custom styles here */
+* {
+    
+}
 
 #searchField {
     justify-content: flex-end;
@@ -6,9 +9,24 @@
 
 .titleAdm {
     font-size: 20px;
-    padding-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 5px;
+    padding-bottom: 10px;
 }
 
 .titleCompany {
     padding-bottom: 10px;
+    margin-left: 5px;
+    font-size: 18px;
 }
+
+.tabInfo {
+    padding-top: 25px;
+    width: 100%;
+}
+
+#columnButton {
+    display: flex;
+    align-items: start;
+}
+

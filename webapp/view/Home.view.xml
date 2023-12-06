@@ -5,12 +5,11 @@
 	xmlns:c="sap.ui.core"
 	xmlns:m="sap.m"
    >
-    
 	<m:Page
 		showHeader="false"
 		enableScrolling="false"
         title="Administração">
-        
+        <!-- HEADER -->
 		 <m:customHeader>
                 <m:Bar>
                     <m:contentLeft>
@@ -27,74 +26,58 @@
                     </m:contentRight>
                 </m:Bar>
             </m:customHeader>
-
-
-        <m:Toolbar class="tabInfo"> 
-            <m:IconTabBar>
+            
+            <!-- TAB BAR DE NAVEGAÇÃO PELO APP -->
+            <m:IconTabBar class="sapUiNoContentPadding">
                 <m:items>
                     <m:IconTabFilter key="info" text="Cadastro">
                         <m:items>
-                            <m:IconTabFilter text="Novos usuários">
-                                
+                            <m:IconTabFilter text="Novos usuários">        
                             </m:IconTabFilter>
-                            <m:IconTabFilter text="Aprovação">
-                                
+                            <m:IconTabFilter text="Aprovação">    
                             </m:IconTabFilter>
                         </m:items>
                     </m:IconTabFilter>
                     <m:IconTabFilter key="info" text="Administração">
                         <m:items>
-                            <m:IconTabFilter text="Evento">
-                                
+                            <m:IconTabFilter text="Evento">                      
                             </m:IconTabFilter>
-                            <m:IconTabFilter text="Agendas">
-                                
+                            <m:IconTabFilter text="Agendas">                                
                             </m:IconTabFilter>
-                            <m:IconTabFilter text="Sessões">
-                                
+                            <m:IconTabFilter text="Sessões">                              
                             </m:IconTabFilter>
-							<m:IconTabFilter text="Empresas" press="navToCompany">
-                                
+							<m:IconTabFilter text="Empresas" press="navToCompany">                             
                             </m:IconTabFilter>
-                            <m:IconTabFilter text="Pacotes">
-                                
+                            <m:IconTabFilter text="Pacotes">                              
                             </m:IconTabFilter>
-                            <m:IconTabFilter text="Repositório">
-                                
+                            <m:IconTabFilter text="Repositório">     
                             </m:IconTabFilter>
                             <m:IconTabFilter text="Usuários">
-                                
                             </m:IconTabFilter>
                         </m:items>
                     </m:IconTabFilter>
                     <m:IconTabFilter key="info" text="Gamificação">
                         <m:items>
                             <m:IconTabFilter text="Tarefas">
-                                
                             </m:IconTabFilter>
                             <m:IconTabFilter text="Trilhas">
-                                
                             </m:IconTabFilter>
                         </m:items>
                     </m:IconTabFilter>
                     <m:IconTabFilter key="info" text="Relatórios">
                         <m:items>
                             <m:IconTabFilter text="Ranking">
-                                
                             </m:IconTabFilter>
                             <m:IconTabFilter text="Check in">
-                                
                             </m:IconTabFilter>
                             <m:IconTabFilter text="Feedbacks">
-                                
                             </m:IconTabFilter>
                         </m:items>
                     </m:IconTabFilter>
                 </m:items>
             </m:IconTabBar>
-        </m:Toolbar>
-        
-		<m:content>
+       <!-- CONTEÚDO DA PAGE (TEXTS/BUTTONS/TABLE) -->
+		<m:content >
             <m:Title text="Administração" class="titleAdm" />
             <m:ToolbarSpacer/>
             <m:Title text="Empresas" class="titleCompany" />
@@ -105,16 +88,16 @@
 				>
 				<extension>
 					<m:OverflowToolbar >
-						<m:Title id="title" text="Empresas ({companyInfo>/data/length})"/>
+						<m:Title class="title" text="Empresas ({companyInfo>/data/length})"/>
                         <m:ToolbarSpacer/>
-                        <m:SearchField id="searchField" width="14rem" liveChange="onSearch" placeholder="Pesquisar" />
+                        <m:SearchField class="searchField" width="14rem" liveChange="onSearch" placeholder="Pesquisar" />
 					</m:OverflowToolbar>
 				</extension>
 				<columns>
 					<Column width="5%">
 						<m:Label text="ID" />
 						<template>
-							<m:Text text="{companyInfo>companyID}" wrapping="false" />
+							<m:Text text="{companyInfo>companyID}" />
 						</template>
 					</Column>
 					<Column width="12rem">
@@ -152,12 +135,13 @@
 							<m:Button
 								icon="sap-icon://navigation-right-arrow"
 								type="Transparent" 
-                                press="handleDetailsPress"/>
+                                press="navCompanyDetail"/>
 						</template>
 					</Column>
 				</columns>
 			</Table>
 		</m:content>
+        <!-- FOOTER C/ BOTÃO DE CADASTRAR NOVA EMPRESA -->
         <m:footer>
 			<m:Toolbar>
 				<m:ToolbarSpacer/>

@@ -1,7 +1,6 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
-    "sap/m/Dialog",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     
@@ -9,7 +8,7 @@ sap.ui.define([
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, Dialog, Filter, FilterOperator) {
+    function (Controller, JSONModel, Filter, FilterOperator) {
         "use strict";
 
         return Controller.extend("com.lab2dev.btpexperience.controller.Home", {
@@ -98,5 +97,27 @@ sap.ui.define([
                 var oBinding = oList.getBinding("rows")
                 oBinding.filter(aFilters)
             },
+            navCompanyDetail: function (oEvent) {
+                // Origem do evento (Item clicado da tabela)
+                const source = oEvent.getSource()
+                //contexto do item da Tabela (Nome do model)
+                const context = source.getBindingContext('companyInfo')
+                debugger
+                // Index do item da Tabela
+                const path = context.getPath()
+                // Acesso ao Objeto do item da tabela pelo path
+                const company = context.getObject(path)
+                debugger
+                // Acesso ao ID da companhia
+                const companyId = company.companyID
+                // Acesso ao Component da App.controller
+                const oComponent = this.getOwnerComponent()
+                // Acesso ao Router
+                const oRouter = oComponent.getRouter()
+                // Navegação para a rota CompanyDetail
+                oRouter.navTo("CompanyDetail", {
+                    companyId: companyId
+                })
+            }
         });
     });

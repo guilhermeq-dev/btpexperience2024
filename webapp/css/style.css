@@ -1,7 +1,5 @@
 /* Enter your custom styles here */
-* {
-    
-}
+
 
 #searchField {
     justify-content: flex-end;
@@ -12,6 +10,7 @@
     margin-top: 10px;
     margin-left: 5px;
     padding-bottom: 10px;
+    padding-top: 8px;
 }
 
 .titleCompany {
@@ -28,5 +27,9 @@
 #columnButton {
     display: flex;
     align-items: start;
+}
+
+#myBtn {
+    padding-bottom: 10px;
 }
 

@@ -1,0 +1,76 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+>
+    <Dialog
+        id="openDialog"
+        showHeader="true"
+        title="Dados da empresa"
+    >
+        <HBox>
+            <VBox>
+                <f:SimpleForm id="SimpleFormDisplay480_12120Dual"
+                    editable="false"
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="4"
+                    labelSpanL="4"
+                    labelSpanM="12"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="0"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="2"
+                    columnsM="2"
+                    singleContainerFullSize="false" >
+                    <f:content>
+                        <Label text="Razão Social" required="true" />
+                        <Input placeholder="Texto" />
+                        <Label text="CNPJ" required="true" />
+                        <Input placeholder="Texto" />
+                        <Label text="Site" required="true" />
+                        <Input placeholder="Texto" />
+                        <Label text="Pacote de patrocínio" required="true" />
+                        <Select items="binding" >
+                            <items>
+                                <core:Item text="Selecione o pacote inicial"/>
+                                <core:Item key="opcao1" text="Plano Diamante"/>
+                                <core:Item key="opcao2" text="Plano Ouro"/>
+                                <core:Item key="opcao3" text="Plano Prata"/>
+                                <core:Item key="opcao4" text="Plano Bronze"/>
+                            </items>
+                        </Select>
+                        <Label text="Nome Fantasia" required="true" />
+                        <Input placeholder="Texto" />
+                        <Label text="Estado" required="true" />
+                        <Select items="binding" >
+                            <items>
+                                <core:Item text="Selecione o estado"/>
+                                <core:Item key="opcao1" text="São Paulo"/>
+                                <core:Item key="opcao2" text="Rio de Janeiro"/>
+                                <core:Item key="opcao3" text="Minas Gerais"/>
+                            </items>
+                        </Select>
+                        <Label text="E-mail de contato" required="true" />
+                        <Input type="Email" placeholder="Texto"/>
+                        <Label text="Logo (imagem)" required="true" />
+                        <Input placeholder="Clique e escolha um arquivo de imagem" />
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+        </HBox>
+        <beginButton>
+            <Button
+                    text="Cadastrar empresa"
+                    press="onCloseDialog"
+                    width=""
+                    type="Emphasized"
+                >
+            </Button>
+        </beginButton>
+    </Dialog>
+</core:FragmentDefinition>

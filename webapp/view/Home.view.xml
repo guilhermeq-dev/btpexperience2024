@@ -9,72 +9,83 @@
 	<m:Page
 		showHeader="false"
 		enableScrolling="false"
-		
         title="Administração">
         
+		 <m:customHeader>
+                <m:Bar>
+                    <m:contentLeft>
+                        <!-- Conteúdo à esquerda do cabeçalho, como um botão de navegação -->
+                        <m:Button icon="sap-icon://nav-back" press="onBackButtonPress"/>
+                    </m:contentLeft>
+                    <m:contentMiddle>
+                        <!-- Conteúdo central do cabeçalho, como o título -->
+                        <m:Title text="Meu Cabeçalho"/>
+                    </m:contentMiddle>
+                    <m:contentRight>
+                        <!-- Conteúdo à direita do cabeçalho -->
+                        <m:Button text="Ação" press="onActionButtonPress"/>
+                    </m:contentRight>
+                </m:Bar>
+            </m:customHeader>
+
+
         <m:Toolbar class="tabInfo"> 
             <m:IconTabBar>
                 <m:items>
                     <m:IconTabFilter key="info" text="Cadastro">
                         <m:items>
-                            <m:IconTabFilter text="Info one">
+                            <m:IconTabFilter text="Novos usuários">
                                 
                             </m:IconTabFilter>
-                            <m:IconTabFilter text="Info two">
-                                
-                            </m:IconTabFilter>
-                            <m:IconTabFilter text="Info three">
-                                
-                            </m:IconTabFilter>
-                            <m:IconTabFilter text="Info four">
+                            <m:IconTabFilter text="Aprovação">
                                 
                             </m:IconTabFilter>
                         </m:items>
                     </m:IconTabFilter>
                     <m:IconTabFilter key="info" text="Administração">
                         <m:items>
-                            <m:IconTabFilter text="Empresas" press="navToCompany">
+                            <m:IconTabFilter text="Evento">
                                 
                             </m:IconTabFilter>
-                            <m:IconTabFilter text="Info two">
+                            <m:IconTabFilter text="Agendas">
                                 
                             </m:IconTabFilter>
-                            <m:IconTabFilter text="Info three">
+                            <m:IconTabFilter text="Sessões">
                                 
                             </m:IconTabFilter>
-                            <m:IconTabFilter text="Info four">
+							<m:IconTabFilter text="Empresas" press="navToCompany">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Pacotes">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Repositório">
+                                
+                            </m:IconTabFilter>
+                            <m:IconTabFilter text="Usuários">
                                 
                             </m:IconTabFilter>
                         </m:items>
                     </m:IconTabFilter>
                     <m:IconTabFilter key="info" text="Gamificação">
                         <m:items>
-                            <m:IconTabFilter text="Info one">
+                            <m:IconTabFilter text="Tarefas">
                                 
                             </m:IconTabFilter>
-                            <m:IconTabFilter text="Info two">
-                                
-                            </m:IconTabFilter>
-                            <m:IconTabFilter text="Info three">
-                                
-                            </m:IconTabFilter>
-                            <m:IconTabFilter text="Info four">
+                            <m:IconTabFilter text="Trilhas">
                                 
                             </m:IconTabFilter>
                         </m:items>
                     </m:IconTabFilter>
                     <m:IconTabFilter key="info" text="Relatórios">
                         <m:items>
-                            <m:IconTabFilter text="Info one">
+                            <m:IconTabFilter text="Ranking">
                                 
                             </m:IconTabFilter>
-                            <m:IconTabFilter text="Info two">
+                            <m:IconTabFilter text="Check in">
                                 
                             </m:IconTabFilter>
-                            <m:IconTabFilter text="Info three">
-                                
-                            </m:IconTabFilter>
-                            <m:IconTabFilter text="Info four">
+                            <m:IconTabFilter text="Feedbacks">
                                 
                             </m:IconTabFilter>
                         </m:items>
@@ -89,25 +100,24 @@
             <m:Title text="Empresas" class="titleCompany" />
 			<Table
                 id="tableID"
-				rows="{companyInfo>/}"
-				selectionMode="MultiToggle"
-				paste="onPaste"
-				ariaLabelledBy="title">
+				rows="{companyInfo>/data}"
+				selectionMode="None"
+				>
 				<extension>
 					<m:OverflowToolbar >
-						<m:Title id="title" text="Empresas ({companyInfo>/length})"/>
+						<m:Title id="title" text="Empresas ({companyInfo>/data/length})"/>
                         <m:ToolbarSpacer/>
-                        <m:SearchField id="searchField" width="15%" liveChange="onSearch" placeholder="Pesquisar" />
+                        <m:SearchField id="searchField" width="14rem" liveChange="onSearch" placeholder="Pesquisar" />
 					</m:OverflowToolbar>
 				</extension>
 				<columns>
-					<Column width="5rem">
+					<Column width="5%">
 						<m:Label text="ID" />
 						<template>
 							<m:Text text="{companyInfo>companyID}" wrapping="false" />
 						</template>
 					</Column>
-					<Column width="16rem">
+					<Column width="12rem">
 						<m:Label text="Nome (fantasia)" />
 						<template>
 							<m:Label text="{companyInfo>companyName}"/>
@@ -131,15 +141,14 @@
 							<m:Label text="{companyInfo>email}" />
 						</template>
 					</Column>
-					<Column width="15rem">
+					<Column width="14rem">
 						<m:Label text="Estado" />
 						<template>
 							<m:Label text="{companyInfo>region}" />
 						</template>
 					</Column>
-                    <Column width="2rem" id="columnButton">
-                        <m:Label text="" />
-						<template>
+                    <Column width="2rem" >
+                        <template>
 							<m:Button
 								icon="sap-icon://navigation-right-arrow"
 								type="Transparent" 
@@ -148,7 +157,6 @@
 					</Column>
 				</columns>
 			</Table>
-            
 		</m:content>
         <m:footer>
 			<m:Toolbar>

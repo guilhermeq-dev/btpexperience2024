@@ -1,7 +1,99 @@
 <mvc:View controllerName="com.lab2dev.btpexperience.controller.App"
     xmlns:html="http://www.w3.org/1999/xhtml"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-    <App id="app">
-    </App>
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:tnt="sap.tnt"
+    xmlns="sap.m"
+>
+    <App id="app" />
+    <!-- <tnt:ToolPage id="toolPage">
+        <tnt:header>
+            <tnt:ToolHeader>
+                <IconTabHeader
+                    selectedKey="{/selectedKey}"
+                    items=""
+                    select=".onItemSelect"
+                    
+                >
+                    <layoutData>
+                        <OverflowToolbarLayoutData
+                            priority="NeverOverflow"
+                            shrinkable="true"
+                        />
+                    </layoutData>
+                    
+                <items>
+                    <IconTabFilter key="info" text="Cadastro">
+                        <items>
+                            <IconTabFilter text="Info one">
+                                
+                            </IconTabFilter>
+                            <IconTabFilter text="Info two">
+                                
+                            </IconTabFilter>
+                            <IconTabFilter text="Info three">
+                                
+                            </IconTabFilter>
+                            <IconTabFilter text="Info four">
+                                
+                            </IconTabFilter>
+                        </items>
+                    </IconTabFilter>
+                    <IconTabFilter key="a" text="Administração">
+                        <items>
+                            <IconTabFilter text="Empresas" press="navToCompany">
+                                
+                            </IconTabFilter>
+                            <IconTabFilter text="Info two">
+                                
+                            </IconTabFilter>
+                            <IconTabFilter text="Info three">
+                                
+                            </IconTabFilter>
+                            <IconTabFilter text="Info four">
+                                
+                            </IconTabFilter>
+                        </items>
+                    </IconTabFilter>
+                    <IconTabFilter key="ba" text="Gamificação">
+                        <items>
+                            <IconTabFilter text="Info one">
+                                
+                            </IconTabFilter>
+                            <IconTabFilter text="Info two">
+                                
+                            </IconTabFilter>
+                            <IconTabFilter text="Info three">
+                                
+                            </IconTabFilter>
+                            <IconTabFilter text="Info four">
+                                
+                            </IconTabFilter>
+                        </items>
+                    </IconTabFilter>
+                    <IconTabFilter key="ca" text="Relatórios">
+                        <items>
+                            <IconTabFilter text="Info one">
+                                
+                            </IconTabFilter>
+                            <IconTabFilter text="Info two">
+                                
+                            </IconTabFilter>
+                            <IconTabFilter text="Info three">
+                                
+                            </IconTabFilter>
+                            <IconTabFilter text="Info four">
+                                
+                            </IconTabFilter>
+                        </items>
+                    </IconTabFilter>
+                </items>
+            
+                </IconTabHeader>
+            </tnt:ToolHeader>
+        </tnt:header> -->
+        <!-- <tnt:mainContents>
+            <App id="app" />
+        </tnt:mainContents>
+    </tnt:ToolPage> -->
 </mvc:View>

@@ -4,10 +4,11 @@
 	xmlns:u="sap.ui.unified"
 	xmlns:c="sap.ui.core"
 	xmlns:m="sap.m"
+    xmlns:l="sap.ui.layout"
    >
 	<m:Page
 		showHeader="false"
-		enableScrolling="false"
+		enableScrolling="true"
         title="Administração">
         <!-- HEADER -->
 		 <m:customHeader>
@@ -46,7 +47,7 @@
                             </m:IconTabFilter>
                             <m:IconTabFilter text="Sessões">                              
                             </m:IconTabFilter>
-							<m:IconTabFilter text="Empresas" press="navToCompany">                             
+							<m:IconTabFilter text="Empresas">                             
                             </m:IconTabFilter>
                             <m:IconTabFilter text="Pacotes">                              
                             </m:IconTabFilter>
@@ -76,70 +77,75 @@
                     </m:IconTabFilter>
                 </m:items>
             </m:IconTabBar>
-       <!-- CONTEÚDO DA PAGE (TEXTS/BUTTONS/TABLE) -->
+
+        <l:VerticalLayout class="sapUiSmallMarginBegin sapUiContentPadding" width="auto">
+			<m:Title text="Administração" titleStyle="H3" />
+			<m:Title text="Empresas" titleStyle="H4" />
+		</l:VerticalLayout>
+        
+       <!-- CONTEÚDO DA PAGINA (TEXTS/BUTTONS/TABLE) -->
 		<m:content >
-            <m:Title text="Administração" class="titleAdm" />
-            <m:ToolbarSpacer/>
-            <m:Title text="Empresas" class="titleCompany" />
-			<Table
-                id="tableID"
-				rows="{companyInfo>/data}"
-				selectionMode="None"
-				>
-				<extension>
-					<m:OverflowToolbar >
-						<m:Title class="title" text="Empresas ({companyInfo>/data/length})"/>
-                        <m:ToolbarSpacer/>
-                        <m:SearchField class="searchField" width="14rem" liveChange="onSearch" placeholder="Pesquisar" />
-					</m:OverflowToolbar>
-				</extension>
-				<columns>
-					<Column width="5%">
-						<m:Label text="ID" />
-						<template>
-							<m:Text text="{companyInfo>companyID}" />
-						</template>
-					</Column>
-					<Column width="12rem">
-						<m:Label text="Nome (fantasia)" />
-						<template>
-							<m:Label text="{companyInfo>companyName}"/>
-						</template>
-					</Column>
-					<Column width="12rem">
-						<m:Label text="CNPJ" />
-						<template>
-							<m:Label text="{companyInfo>corporateCode}" />
-						</template>
-					</Column>
-					<Column width="14rem">
-						<m:Label text="Site" />
-						<template>
-							<m:Label text="{companyInfo>webSite}" />
-						</template>
-					</Column>
-					<Column width="14rem">
-						<m:Label text="E-mail de contato" />
-						<template>
-							<m:Label text="{companyInfo>email}" />
-						</template>
-					</Column>
-					<Column width="14rem">
-						<m:Label text="Estado" />
-						<template>
-							<m:Label text="{companyInfo>region}" />
-						</template>
-					</Column>
-                    <Column width="2rem" >
-                        <template>
-							<m:Button
-								icon="sap-icon://navigation-right-arrow"
-								type="Transparent" 
-                                press="navCompanyDetail"/>
-						</template>
-					</Column>
-				</columns>
-			</Table>
+            <m:VBox class="sapUiResponsiveMargin">
+                <Table
+                    id="tableID"
+                    rows="{companyInfo>/}"
+                    selectionMode="None"
+                    >
+                    <extension>
+                        <m:OverflowToolbar >
+                            <m:Title class="title" text="Empresas ({companyInfo>/length})"/>
+                            <m:ToolbarSpacer/>
+                            <m:SearchField class="searchField" width="14rem" liveChange="onSearch" placeholder="Pesquisar" />
+                        </m:OverflowToolbar>
+                    </extension>
+                    <columns>
+                        <Column width="4rem">
+                            <m:Label text="ID" />
+                            <template>
+                                <m:Text text="{companyInfo>companyID}" wrapping="false" />
+                            </template>
+                        </Column>
+                        <Column >
+                            <m:Label text="Nome (fantasia)" />
+                            <template>
+                                <m:Label text="{companyInfo>companyName}"/>
+                            </template>
+                        </Column>
+                        <Column >
+                            <m:Label text="CNPJ" />
+                            <template>
+                                <m:Label text="{companyInfo>corporateCode}" />
+                            </template>
+                        </Column>
+                        <Column >
+                            <m:Label text="Site" />
+                            <template>
+                                <m:Label text="{companyInfo>webSite}" />
+                            </template>
+                        </Column>
+                        <Column >
+                            <m:Label text="E-mail de contato" />
+                            <template>
+                                <m:Label text="{companyInfo>email}" />
+                            </template>
+                        </Column>
+                        <Column >
+                            <m:Label text="Estado" />
+                            <template>
+                                <m:Label text="{companyInfo>region}" />
+                            </template>
+                        </Column>
+                        <Column width="3.1rem" >
+                            <template>
+                                <m:Button
+                                    icon="sap-icon://navigation-right-arrow"
+                                    type="Transparent" 
+                                    press="navCompanyDetail"/>
+                            </template>
+                        </Column>
+                    </columns>
+                </Table>
+            </m:VBox>
 		</m:content>
         <!-- FOOTER C/ BOTÃO DE CADASTRAR NOVA EMPRESA -->
         <m:footer>

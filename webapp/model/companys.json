@@ -1,9 +1,7 @@
-{
-"data":
-        [
+[
             {
                 "companyID": 10001,
-                "companyName": "LAB2DEV",
+                "companyName": "Lab2dev",
                 "corporateCode": "12.345.678/0001-90",
                 "webSite": "www.lab2dev.com",
                 "email": "contato@lab2dev.com",
@@ -121,5 +119,4 @@
                 "email": "contato@empresa.com",
                 "region": "São Paulo"
             }     
-        ]
-}
+]

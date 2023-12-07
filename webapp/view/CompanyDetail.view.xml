@@ -1,87 +1,114 @@
 <mvc:View
 	controllerName="com.lab2dev.btpexperience.controller.CompanyDetail"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
 	xmlns:core="sap.ui.core"
-    xmlns:f="sap.f"
-	displayBlock="true"
->
-    <Page id="idPage" showHeader="false" showNavButton="true" navButtonPress="onNavBack">
-        <IconTabBar class="sapUiNoContentPadding">
-                <items>
-                    <IconTabFilter key="info" text="Cadastro">
-                        <items>
-                            <IconTabFilter text="Novos usuários">        
-                            </IconTabFilter>
-                            <IconTabFilter text="Aprovação">    
-                            </IconTabFilter>
-                        </items>
-                    </IconTabFilter>
-                    <IconTabFilter key="info" text="Administração">
-                        <items>
-                            <IconTabFilter text="Evento">                      
-                            </IconTabFilter>
-                            <IconTabFilter text="Agendas">                                
-                            </IconTabFilter>
-                            <IconTabFilter text="Sessões">                              
-                            </IconTabFilter>
-							<IconTabFilter text="Empresas" press="navToCompany">                             
-                            </IconTabFilter>
-                            <IconTabFilter text="Pacotes">                              
-                            </IconTabFilter>
-                            <IconTabFilter text="Repositório">     
-                            </IconTabFilter>
-                            <IconTabFilter text="Usuários">
-                            </IconTabFilter>
-                        </items>
-                    </IconTabFilter>
-                    <IconTabFilter key="info" text="Gamificação">
-                        <items>
-                            <IconTabFilter text="Tarefas">
-                            </IconTabFilter>
-                            <IconTabFilter text="Trilhas">
-                            </IconTabFilter>
-                        </items>
-                    </IconTabFilter>
-                    <IconTabFilter key="info" text="Relatórios">
-                        <items>
-                            <IconTabFilter text="Ranking">
-                            </IconTabFilter>
-                            <IconTabFilter text="Check in">
-                            </IconTabFilter>
-                            <IconTabFilter text="Feedbacks">
-                            </IconTabFilter>
-                        </items>
-                    </IconTabFilter>
-                </items>
-            </IconTabBar>
-            <content>
-                <Title text="Administração" class="titleAdm" />
-                <ToolbarSpacer/>
-                <Title text="Empresas > Detalhes" class="titleCompany" />
-                <f:GridList
-                    id="gridList"
-                >
-                    <f:GridListItem>
-                        <VBox class="sapUiSmallMargin">
-                            <layoutData>
-                                <FlexItemData
-                                    growFactor="1"
-                                    shrinkFactor="0"
-                                />
-                            </layoutData>
+	xmlns:m="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:f="sap.f"
+	xmlns:t="sap.tnt"
+	xmlns="sap.ui.webc.main" height="100%">
+	<m:Page showHeader="false">
 
-                            <Title
-                                text="title"
-                                wrapping="true"
-                            />
-                            <Label
-                                text="subtitle"
-                                wrapping="true"
-                            />
-                        </VBox>
-                    </f:GridListItem>
-            </f:GridList>
-        </content>
-    </Page>
+        <m:IconTabBar class="sapUiNoContentPadding">
+            <m:items>
+                <m:IconTabFilter key="info" text="Cadastro">
+                    <m:items>
+                        <m:IconTabFilter text="Novos usuários">        
+                        </m:IconTabFilter>
+                        <m:IconTabFilter text="Aprovação">    
+                        </m:IconTabFilter>
+                    </m:items>
+                </m:IconTabFilter>
+                <m:IconTabFilter key="info" text="Administração">
+                    <m:items>
+                        <m:IconTabFilter text="Evento">                      
+                        </m:IconTabFilter>
+                        <m:IconTabFilter text="Agendas">                                
+                        </m:IconTabFilter>
+                        <m:IconTabFilter text="Sessões">                              
+                        </m:IconTabFilter>
+						<m:IconTabFilter text="Empresas" press="navToCompany">                             
+                        </m:IconTabFilter>
+                        <m:IconTabFilter text="Pacotes">                              
+                        </m:IconTabFilter>
+                        <m:IconTabFilter text="Repositório">     
+                        </m:IconTabFilter>
+                        <m:IconTabFilter text="Usuários">
+                        </m:IconTabFilter>
+                    </m:items>
+                </m:IconTabFilter>
+                <m:IconTabFilter key="info" text="Gamificação">
+                    <m:items>
+                        <m:IconTabFilter text="Tarefas">
+                        </m:IconTabFilter>
+                        <m:IconTabFilter text="Trilhas">
+                        </m:IconTabFilter>
+                    </m:items>
+                </m:IconTabFilter>
+                <m:IconTabFilter key="info" text="Relatórios">
+                    <m:items>
+                        <m:IconTabFilter text="Ranking">
+                        </m:IconTabFilter>
+                        <m:IconTabFilter text="Check in">
+                        </m:IconTabFilter>
+                        <m:IconTabFilter text="Feedbacks">
+                        </m:IconTabFilter>
+                    </m:items>
+                </m:IconTabFilter>
+            </m:items>
+        </m:IconTabBar>
+
+		<l:VerticalLayout class="sapUiResponsiveContentPadding" width="auto">
+			<m:Title text="Administração" titleStyle="H3" />
+			<m:Title text="Empresas > Detalhes" titleStyle="H4" />
+		</l:VerticalLayout>
+		<m:content>
+			<m:Panel width="auto" backgroundDesign="Transparent" class="sapUiResponsiveContentPadding">
+				<m:List >
+					<f:GridListItem>
+						<m:VBox >
+							<m:HBox class="sapUiSmallMarginTop sapUiSmallMarginBegin" justifyContent="SpaceBetween">
+                                <m:HBox>
+                                    <m:Avatar src="../img/lab2dev.png" class="sapUiSmallMarginEnd" />
+                                    <m:VBox class="sapUiSmallMarginEnd" width="250px">	
+                                        <m:Title text="Lab2dev" titleStyle="H5" wrapping="true" />
+                                        <m:Label text="LAB2DEV SOLUCOES EM TECNOLOGIA LTDA" wrapping="true"></m:Label>
+                                        <m:ObjectStatus class="sapUiSmallMarginBottom"
+                                                        text="PATROCINADOR DIAMANTE"
+                                                        inverted="true"
+                                                        state="Information" />
+                                        <m:Label text="CNPJ: "></m:Label>
+                                        <m:Label text="12.345.678/0001-90"></m:Label>
+                                    </m:VBox>
+                                    <m:VBox class="sapUiSmallMarginBegin sapUiSmallMarginEnd" width="300px">	
+                                        <m:Title text="Dados do sistema" titleStyle="H5" wrapping="true" />
+                                        <m:Label text="ID:" wrapping="true"></m:Label>
+                                        <m:Label text="10001" wrapping="true"></m:Label>
+                                        <m:Label text=""></m:Label>
+                                        <m:Label text="Estado: "></m:Label>
+                                        <m:Label text="São Paulo"></m:Label>
+                                    </m:VBox>
+                                    <m:VBox class="sapUiSmallMarginEnd">	
+                                        <m:Title text="Contato" titleStyle="H5" wrapping="true" />
+                                        <m:Label text="Email:" wrapping="true"></m:Label>
+                                        <m:Link text="contato@lab2dev.com"></m:Link>
+                                        <m:Label text="" wrapping="true"></m:Label>
+                                        <m:Label text="Site: "></m:Label>
+                                        <m:Link  text="www.lab2dev.com"></m:Link>
+                                    </m:VBox>    
+                                </m:HBox>
+								<m:Button class="sapUiSmallMarginEnd" width="auto" type="Emphasized" text="Editar dados" press="onOpenDialog">
+								</m:Button>
+							</m:HBox>                      
+						</m:VBox>
+					</f:GridListItem>
+				</m:List>
+			</m:Panel>
+			
+			<l:VerticalLayout class="sapUiContentPadding sapUiResponsiveContentPadding sapUiNoMargin">
+				<m:Title class="" text="Pacote adquiridos" titleStyle="H4" />
+			</l:VerticalLayout>
+		</m:content>
+	</m:Page>
 </mvc:View>

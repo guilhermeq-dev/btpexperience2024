@@ -86,7 +86,7 @@
         },
         {
           "name": "CompanyDetail",
-          "pattern": "details",
+          "pattern": "details/{companyId}",
           "target": [
             "TargetCompanyDetail"
           ]

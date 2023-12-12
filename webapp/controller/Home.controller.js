@@ -4,14 +4,15 @@ sap.ui.define(
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
+    "com/lab2dev/btpexperience/model/formatter",
   ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (Controller, JSONModel, Filter, FilterOperator) {
+  function (Controller, JSONModel, Filter, FilterOperator, formatter) {
     "use strict";
-
     return Controller.extend("com.lab2dev.btpexperience.controller.Home", {
+      formatter: formatter,
       onInit: function () {
         // cria um modelo JSON com as empresas (dados importados de um arquivo json localizado na model)
         const oModel = new JSONModel();
@@ -38,22 +39,19 @@ sap.ui.define(
           webSite: "",
           email: "",
           region: "",
+          select: "",
         });
         //
         this.getView().setModel(oDataModel, "formData");
         // Abre o dialog
         this.dialog.open();
       },
-      // função que vai salvar os novos dados na tabela
+      // função p/ salvar os novos dados na tabela
       onSendFormData: function () {
         const formData = this.getView().getModel("formData").getData();
         const companyInfoList = this.getView()
           .getModel("companyInfo")
           .getData();
-
-        // varial declarada para pegar a propriedade selectedKey pelo ID
-        const selectedState =
-          this.byId("selectState").getProperty("selectedKey");
 
         this.getView()
           .getModel("companyInfo")
@@ -63,14 +61,12 @@ sap.ui.define(
               ...formData,
               companyID:
                 companyInfoList[companyInfoList.length - 1].companyID + 1,
-              region: selectedState === "placeholder" ? " " : selectedState
             },
           ]);
-
-        this.onCloseDialog();
+        // fecha o dialog ao pressionar o botão "Cadastrar empresa" dentro do dialog
+        this.dialog.close();
       },
-      // fecha o dialog ao pressionar o botão "Cadastrar empresa" dentro do dialog
-      onCloseDialog: function () {
+      onCancelAddForm: function () {
         this.dialog.close();
       },
       // SearchField adicionado
@@ -88,9 +84,10 @@ sap.ui.define(
         }
 
         // update list binding
-        var oList = this.byId("tableID");
-        var oBinding = oList.getBinding("rows");
+        var oTable = this.byId("tableID");
+        var oBinding = oTable.getBinding("rows");
         oBinding.filter(aFilters);
+
       },
       // Navegação para a pagina de detalhes
       navCompanyDetail: function (oEvent) {
@@ -111,7 +108,8 @@ sap.ui.define(
         // Navegação para a rota CompanyDetail
         oRouter.navTo("CompanyDetail", {
           companyId: companyId,
-        });
+        }
+        );
       },
     });
   }

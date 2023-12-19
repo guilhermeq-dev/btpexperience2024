@@ -83,6 +83,13 @@
           "target": [
             "TargetHome"
           ]
+        },
+        {
+          "name": "CompanyDetail",
+          "pattern": "details/{companyId}",
+          "target": [
+            "TargetCompanyDetail"
+          ]
         }
       ],
       "targets": {
@@ -92,6 +99,13 @@
           "clearControlAggregation": false,
           "viewId": "Home",
           "viewName": "Home"
+        },
+        "TargetCompanyDetail": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "CompanyDetail",
+          "viewName": "CompanyDetail"
         }
       }
     },

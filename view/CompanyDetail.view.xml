@@ -1,0 +1,151 @@
+<mvc:View
+	controllerName="com.lab2dev.btpexperience.controller.CompanyDetail"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:core="sap.ui.core"
+	xmlns:m="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:f="sap.f"
+	xmlns:t="sap.tnt"
+	xmlns:card="sap.f.cards" height="100%">
+	<m:Page showHeader="false">
+
+        <m:IconTabBar class="sapUiNoContentPadding" selectedKey="administration">
+            <m:items>
+                <m:IconTabFilter key="info" text="Cadastro">
+                    <m:items>
+                        <m:IconTabFilter text="Novos usuários">        
+                        </m:IconTabFilter>
+                        <m:IconTabFilter text="Aprovação">    
+                        </m:IconTabFilter>
+                    </m:items>
+                </m:IconTabFilter>
+                <m:IconTabFilter key="administration" text="Administração">
+                    <m:items>
+                        <m:IconTabFilter text="Evento">                      
+                        </m:IconTabFilter>
+                        <m:IconTabFilter text="Agendas">                                
+                        </m:IconTabFilter>
+                        <m:IconTabFilter text="Sessões">                              
+                        </m:IconTabFilter>
+						<m:IconTabFilter text="Empresas">                             
+                        </m:IconTabFilter>
+                        <m:IconTabFilter text="Pacotes">                              
+                        </m:IconTabFilter>
+                        <m:IconTabFilter text="Repositório">     
+                        </m:IconTabFilter>
+                        <m:IconTabFilter text="Usuários">
+                        </m:IconTabFilter>
+                    </m:items>
+                </m:IconTabFilter>
+                <m:IconTabFilter key="info" text="Gamificação">
+                    <m:items>
+                        <m:IconTabFilter text="Tarefas">
+                        </m:IconTabFilter>
+                        <m:IconTabFilter text="Trilhas">
+                        </m:IconTabFilter>
+                    </m:items>
+                </m:IconTabFilter>
+                <m:IconTabFilter key="info" text="Relatórios">
+                    <m:items>
+                        <m:IconTabFilter text="Ranking">
+                        </m:IconTabFilter>
+                        <m:IconTabFilter text="Check in">
+                        </m:IconTabFilter>
+                        <m:IconTabFilter text="Feedbacks">
+                        </m:IconTabFilter>
+                    </m:items>
+                </m:IconTabFilter>
+            </m:items>
+        </m:IconTabBar>
+
+		<l:VerticalLayout class="sapUiResponsiveContentPadding" width="auto">
+			<m:Title text="Administração" titleStyle="H3" />
+		</l:VerticalLayout>
+
+        <m:Breadcrumbs class="sapUiMediumMarginBegin" separatorStyle="GreaterThan" currentLocationText="Detalhes">
+			<m:Link text="Empresas" press="onBackHome"/>
+		</m:Breadcrumbs>
+
+		<m:content>
+			<m:Panel width="auto" backgroundDesign="Transparent" class="sapUiResponsiveContentPadding">
+				<m:List >
+					<f:GridListItem>
+						<m:VBox >
+							<m:HBox class="sapUiSmallMarginTop sapUiSmallMarginBegin" justifyContent="SpaceBetween">
+                                <m:HBox>
+                                    <m:Avatar src="{= ${companyDetails>/companyName} === 'Lab2dev' ? '../img/lab2dev.png' : '../img/default.png' }" class="sapUiSmallMarginEnd" />
+                                    <m:VBox class="sapUiSmallMarginEnd" width="250px">	
+                                        <m:Title text="{companyDetails>/companyName}" titleStyle="H5" wrapping="true" />
+                                        <m:Label text="{companyDetails>/corporateName}" wrapping="true"></m:Label>
+                                        <m:ObjectStatus class="sapUiSmallMarginBottom"
+                                                        text="PATROCINADOR DIAMANTE"
+                                                        inverted="true"
+                                                        state="Information" />
+                                        <m:Label text="CNPJ: "></m:Label>
+                                        <m:Label class="sapUiSmallMarginBottom" text="{companyDetails>/corporateCode}"></m:Label>
+                                    </m:VBox>
+                                    <m:VBox class="sapUiSmallMarginBegin sapUiSmallMarginEnd" width="300px">	
+                                        <m:Title class="sapUiSmallMarginBottom" text="Dados do sistema" titleStyle="H5" wrapping="true" />
+                                        <m:Label text="ID:" wrapping="true"></m:Label>
+                                        <m:Label text="{companyDetails>/companyID}" wrapping="true"></m:Label>
+                                        <m:Label text=""></m:Label>
+                                        <m:Label text="Estado: "></m:Label>
+                                        <m:Label class="sapUiSmallMarginBottom" text="{companyDetails>/region}"></m:Label>
+                                    </m:VBox>
+                                    <m:VBox class="sapUiSmallMarginEnd">	
+                                        <m:Title class="sapUiSmallMarginBottom" text="Contato" titleStyle="H5" wrapping="true" />
+                                        <m:Label text="Email:" wrapping="true"></m:Label>
+                                        <m:Link text="{companyDetails>/email}"></m:Link>
+                                        <m:Label text="" wrapping="true"></m:Label>
+                                        <m:Label text="Site: "></m:Label>
+                                        <m:Link  class="sapUiSmallMarginBottom" text="{companyDetails>/webSite}"></m:Link>
+                                    </m:VBox>    
+                                </m:HBox>
+								<m:Button class="sapUiSmallMarginEnd" width="auto" type="Emphasized" text="Editar dados" press="onOpenDialog">
+								</m:Button>
+							</m:HBox>                      
+						</m:VBox>
+					</f:GridListItem>
+				</m:List>
+			</m:Panel>
+            <m:Panel width="auto" backgroundDesign="Transparent" >
+                <l:VerticalLayout class="sapUiSmallMarginBegin">
+                    <m:Title class="" text="Pacotes adquiridos" titleStyle="H4" />
+                        <m:VBox>
+                            <m:HBox>
+                                <f:Card width="200px">
+                                    <f:header>
+                                        <card:Header
+                                                title="Plano Diamante"
+                                                iconSrc="sap-icon://blank-tag-2"
+                                                iconSize="XS"/>
+                                    </f:header>
+                                </f:Card>   
+                            </m:HBox>                      
+                        </m:VBox>
+                </l:VerticalLayout>
+            </m:Panel>
+            <m:Panel width="auto" backgroundDesign="Transparent" >
+                <l:VerticalLayout class="sapUiSmallMarginBegin">
+                <m:Title class="" text="Funcionários" titleStyle="H4" />
+                    <f:GridListItem>
+                        <m:VBox>
+                            <m:HBox class="sapUiSmallMarginTop sapUiSmallMarginBottom sapUiSmallMarginBegin" justifyContent="SpaceBetween">
+                                <m:Avatar src="../img/Man.png" class="sapUiSmallMarginEnd" />
+                                <m:VBox class="sapUiSmallMarginEnd" width="155px">	
+                                    <m:Title text="Marcos Fernando" titleStyle="H6" />
+                                    <m:Text text="Sócio" />
+                                    <m:ObjectStatus
+                                                text="PATROCINADOR"
+                                                inverted="true"
+                                                state="Information"/>
+                                </m:VBox>    
+                            </m:HBox>                      
+                        </m:VBox>
+                    </f:GridListItem>
+                </l:VerticalLayout>
+            </m:Panel>
+		</m:content>
+	</m:Page>
+</mvc:View>

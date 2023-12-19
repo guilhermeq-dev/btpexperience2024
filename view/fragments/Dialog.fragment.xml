@@ -1,48 +1,79 @@
 <core:FragmentDefinition
 	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
 	xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
 >
     <Dialog
         id="openDialog"
-        title="Dados da Empresa"
+        showHeader="false"
+        title="Dados da empresa"
+        class="companyDialog"
     >
-
-        <content>
-            <HBox>
-                <Label text="Nome" required="true" />
-                <Input placeholder="Texto"/>
-
-                <Label text="E-mail" required="true" />
-                <Input placeholder="Texto" />
-            </HBox>
-            <HBox>
-                <Label text="Nome" required="true" />
-                <Input placeholder="Texto"/>
-
-                <Label text="E-mail" required="true" />
-                <Input placeholder="Texto" />
-            </HBox>
-            <HBox>
-                <Label text="Nome" required="true" />
-                <Input placeholder="Texto"/>
-
-                <Label text="E-mail" required="true" />
-                <Input placeholder="Texto" />
-            </HBox>
-            <HBox>
-                <Label text="Nome" required="true" />
-                <Input placeholder="Texto"/>
-
-                <Label text="E-mail" required="true" />
-                <Input placeholder="Texto" />
-            </HBox>
+            <VBox>
+                <f:SimpleForm id="SimpleFormChangeColumn_twoGroups234" editable="true" layout="ColumnLayout" title="Dados da empresa" labelSpanXL="12" labelSpanL="12" labelSpanM="3" labelSpanS="12" adjustLabelSpan="true" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsM="2" columnsL="2" columnsXL="2">
+                    <f:content>
+                        <Label text="Razão Social" required="true" />
+                        <Input value="{formData>/companyName}" placeholder="Texto" />
+                        <Label text="CNPJ" required="true" />
+                        <Input value="{path: 'formData>/corporateCode'}" placeholder="Texto" />
+                        <Label text="Site" required="true" />
+                        <Input value="{formData>/webSite}" placeholder="Texto" />
+                        <Label text="Pacote de patrocínio" required="true" />
+                        <Select items="binding" selectedKey="{formData>/select}" >
+                            <items>
+                                <core:Item key="" enabled="false" text="Selecione o pacote inicial"/>
+                                <core:Item key="opcao1" text="Plano Diamante"/>
+                                <core:Item key="opcao2" text="Plano Ouro"/>
+                                <core:Item key="opcao3" text="Plano Prata"/>
+                                <core:Item key="opcao4" text="Plano Bronze"/>
+                            </items>
+                        </Select>
+                        <Label text="Nome Fantasia" required="true" />
+                        <Input value="{formData>/companyName}" placeholder="Texto" />
+                        <Label text="Estado" required="true" />
+                        <Select items="binding" selectedKey="{formData>/region}" id="selectState">
+                            <items>
+                                <core:Item key="" enabled="false" text="Selecione o estado"/>
+                                <core:Item key="São Paulo" text="São Paulo"/>
+                                <core:Item key="Rio de Janeiro" text="Rio de Janeiro"/>
+                                <core:Item key="Minas Gerais" text="Minas Gerais"/>
+                            </items>
+                        </Select>
+                        <Label text="E-mail de contato" required="true" />
+                        <Input value="{formData>/email}" type="Email" placeholder="Texto"/>
+                        <Label text="Logo (imagem)" required="true" />
+                        <u:FileUploader
+                                width="100%"
+                                buttonOnly="true"
+                                style="Transparent"
+                                buttonText="Clique e escolha um arquivo de imagem"  
+                                id="fileUploader"
+                                name="myFileUpload"
+                                uploadUrl="upload/"
+                                tooltip="Upload your file to the local server"
+                                uploadComplete="handleUploadComplete"/>
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+        <beginButton>
             <Button
                     text="Cadastrar empresa"
-                    press="onCloseDialog"
+                    press="onSendFormData"
                     width=""
                     type="Emphasized"
                 >
             </Button>
-        </content>
+        </beginButton>
+        <endButton>
+            <Button
+                    text="Cancelar"
+                    press="onCancelAddForm"
+                    width="4.5rem"
+                    type="Ghost"
+                >
+            </Button>
+        </endButton>
     </Dialog>
 </core:FragmentDefinition>
